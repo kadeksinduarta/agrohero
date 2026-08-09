@@ -94,14 +94,22 @@ export default function FeaturedProjects() {
                             </CardContent>
 
                             <CardFooter className="p-6 pt-4">
-                                <Button className="w-full rounded-xl bg-orange-600 text-white hover:bg-orange-700 shadow-md">Lihat Detail</Button>
+                                <Button asChild className="w-full rounded-xl bg-orange-600 text-white hover:bg-orange-700 shadow-md">
+                                    <a href="https://play.google.com/store/apps/details?id=com.agrohero.app" target="_blank" rel="noopener noreferrer">
+                                        Lihat Detail
+                                    </a>
+                                </Button>
                             </CardFooter>
                         </Card>
                     ))}
                 </div>
                 
                 <div className="mt-12 text-center">
-                    <Button variant="outline" className="rounded-xl border-slate-300 text-slate-700 hover:bg-slate-50">Eksplorasi Proyek Lainnya</Button>
+                    <Button asChild variant="outline" className="rounded-xl border-slate-300 text-slate-700 hover:bg-slate-50">
+                        <a href="https://play.google.com/store/apps/details?id=com.agrohero.app" target="_blank" rel="noopener noreferrer">
+                            Eksplorasi Proyek Lainnya
+                        </a>
+                    </Button>
                 </div>
             </div>
         </section>

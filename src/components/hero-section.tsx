@@ -31,12 +31,16 @@ export default function HeroSection() {
                     </p>
 
                     <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto px-4 sm:px-0 animate-fade-in-blur-delay-3">
-                        <Button size="lg" className="w-full sm:w-auto h-12 sm:h-14 rounded-xl bg-orange-500 hover:bg-orange-600 px-6 sm:px-8 text-white shadow-xl shadow-orange-500/20 hover:scale-105 transition-all">
-                            <span className="text-sm sm:text-base font-semibold">Lihat Proyek Perdana</span>
+                        <Button asChild size="lg" className="w-full sm:w-auto h-12 sm:h-14 rounded-xl bg-orange-500 hover:bg-orange-600 px-6 sm:px-8 text-white shadow-xl shadow-orange-500/20 hover:scale-105 transition-all">
+                            <a href="https://play.google.com/store/apps/details?id=com.agrohero.app" target="_blank" rel="noopener noreferrer">
+                                <span className="text-sm sm:text-base font-semibold">Lihat Proyek Perdana</span>
+                            </a>
                         </Button>
-                        <Button size="lg" variant="outline" className="w-full sm:w-auto h-12 sm:h-14 rounded-xl bg-white px-6 sm:px-8 text-slate-700 hover:bg-slate-50 shadow-sm border-slate-200 transition-all hover:scale-105">
-                            <img src="/playstore.png" alt="" className="w-8 h-8" />
-                            <span className="text-sm sm:text-base font-semibold">Download App</span>
+                        <Button asChild size="lg" variant="outline" className="w-full sm:w-auto h-12 sm:h-14 rounded-xl bg-white px-6 sm:px-8 text-slate-700 hover:bg-slate-50 shadow-sm border-slate-200 transition-all hover:scale-105">
+                            <a href="https://play.google.com/store/apps/details?id=com.agrohero.app" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                                <img src="/playstore.png" alt="" className="w-8 h-8" />
+                                <span className="text-sm sm:text-base font-semibold">Download App</span>
+                            </a>
                         </Button>
                     </div>
 
@@ -44,10 +48,10 @@ export default function HeroSection() {
                     <div className="mt-6 sm:mt-8 flex items-center justify-center gap-4 sm:gap-6 text-xs text-slate-500 animate-fade-in-blur-delay-3">
                         <span className="font-medium">Tersedia di:</span>
                         <div className="flex items-center gap-4 font-semibold text-slate-700">
-                            <span className="flex items-center gap-1.5 hover:text-slate-900 transition">
+                            <a href="https://play.google.com/store/apps/details?id=com.agrohero.app" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-slate-900 transition">
                                  <img src="/playstore.png" alt="" className="w-5 h-5" />
                                 Google Play
-                            </span>
+                            </a>
                         </div>
                     </div>
                 </div>

@@ -20,12 +20,14 @@ export default function DownloadBanner() {
 
                         {/* Store Buttons */}
                         <div className="flex flex-wrap items-center gap-4 pt-2">
-                            <Button size="lg" className="h-14 rounded-xl bg-white text-slate-900 hover:bg-slate-100 shadow-xl px-6">
-                                 <img src="/playstore.png" alt="" className="w-10 h-10" />
-                                <div className="flex flex-col items-start text-left">
-                                    <span className="text-[10px] leading-none opacity-70 uppercase tracking-wider">Get it on</span>
-                                    <span className="text-sm font-semibold leading-tight mt-0.5">Google Play</span>
-                                </div>
+                            <Button asChild size="lg" className="h-14 rounded-xl bg-white text-slate-900 hover:bg-slate-100 shadow-xl px-6">
+                                <a href="https://play.google.com/store/apps/details?id=com.agrohero.app" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3">
+                                     <img src="/playstore.png" alt="" className="w-10 h-10" />
+                                    <div className="flex flex-col items-start text-left">
+                                        <span className="text-[10px] leading-none opacity-70 uppercase tracking-wider">Get it on</span>
+                                        <span className="text-sm font-semibold leading-tight mt-0.5">Google Play</span>
+                                    </div>
+                                </a>
                             </Button>
                         </div>
                     </div>
