@@ -14,6 +14,15 @@ export const metadata: Metadata = {
     template: "%s | Agro Hero",
   },
   description: "Platform investasi pertanian inovatif di Indonesia. Menghubungkan investor, petani lokal, dan lahan produktif secara transparan, aman, dan berdampak sosial nyata.",
+  keywords: ["investasi pertanian", "pertanian lokal", "agro hero", "petani indonesia", "pendanaan pertanian", "agribisnis", "investasi syariah", "bagi hasil pertanian"],
+  authors: [{ name: "Agro Hero Team", url: "https://agrohero.id" }],
+  creator: "Agro Hero",
+  publisher: "Agro Hero",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   metadataBase: new URL("https://agrohero.id"),
   alternates: {
     canonical: "/",
@@ -63,7 +72,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning={true} className={poppins.variable}>
+    <html lang="id" suppressHydrationWarning={true} className={poppins.variable}>
       <body className="bg-white min-h-screen text-slate-800 font-sans antialiased selection:bg-blue-200">
         <div className="relative flex min-h-screen flex-col overflow-hidden">{children}</div>
       </body>
