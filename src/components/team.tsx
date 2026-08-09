@@ -31,7 +31,7 @@ const members = [
     {
         name: 'Kurnia',
         role: 'CMO - Agro Hero',
-        avatar: '/kurnia.jpg',
+        avatar: '/Kurnia.jpg',
     }
 ]
 
