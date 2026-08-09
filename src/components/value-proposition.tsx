@@ -12,7 +12,7 @@ export default function ValueProposition() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
                     {/* Investor Card (Primary Highlight) */}
-                    <div className="relative rounded-3xl border-2 border-orange-500 from-orange-50/50 via-white to-white p-6 sm:p-10 shadow-xl shadow-orange-950/5 backdrop-blur-xl transition-all hover:shadow-2xl flex flex-col justify-between">
+                    <div className="relative rounded-xl border-2 border-orange-500 from-orange-50/50 via-white to-white p-6 sm:p-10 shadow-xl shadow-orange-950/5 backdrop-blur-xl transition-all hover:shadow-2xl flex flex-col justify-between">
                         <div className="absolute -top-3.5 left-6 sm:left-8 px-3.5 py-0.5 rounded-full bg-orange-500 text-white text-xs font-semibold uppercase tracking-wider shadow-sm">
                             Fokus Utama
                         </div>
@@ -35,7 +35,7 @@ export default function ValueProposition() {
                             </ul>
                         </div>
 
-                        <Button className="w-full h-12 rounded-xl bg-orange-500 hover:bg-orange-600 text-white font-semibold shadow-lg shadow-orange-500/20 transition-all">
+                        <Button className="w-full h-12 rounded-md bg-orange-500 hover:bg-orange-600 text-white font-semibold shadow-lg shadow-orange-500/20 transition-all">
                             Mulai Danai Sekarang
                         </Button>
                     </div>
@@ -60,7 +60,7 @@ export default function ValueProposition() {
                             </ul>
                         </div>
 
-                        <Button variant="outline" className="w-full h-12 rounded-xl border-emerald-600 text-emerald-700 hover:bg-emerald-50 font-semibold transition-all">
+                        <Button variant="outline" className="w-full h-12 rounded-md border-orange-500 text-orange-500 hover:bg-orange-50 font-semibold transition-all">
                             Daftarkan Kelompok Tani
                         </Button>
                     </div>

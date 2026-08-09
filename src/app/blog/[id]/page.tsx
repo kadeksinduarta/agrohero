@@ -91,9 +91,6 @@ export default async function BlogDetailPage({ params }: Props) {
                     {/* ── Article Header ── */}
                     <header className="mb-10">
                         <div className="flex flex-wrap items-center gap-3 mb-5">
-                            <Badge className={`rounded-full text-xs font-semibold px-3 py-1 border-0 ${categoryColor}`}>
-                                {safePost.category}
-                            </Badge>
                             <span className="text-slate-300">·</span>
                             <time className="text-sm text-slate-500">{safePost.date}</time>
                             <span className="text-slate-300">·</span>
@@ -104,20 +101,9 @@ export default async function BlogDetailPage({ params }: Props) {
                             {safePost.title}
                         </h1>
 
-                        <p className="text-lg text-slate-500 leading-relaxed border-l-4 border-orange-400 pl-4">
+                        <p className="text-xs text-slate-500 leading-relaxed border-l-4 border-orange-400 pl-4">
                             {safePost.excerpt}
                         </p>
-
-                        {/* Author row */}
-                        <div className="flex items-center gap-3 mt-6 pt-6 border-t border-slate-100">
-                            <div className="flex size-9 items-center justify-center rounded-full bg-orange-100 text-orange-700 font-bold text-sm shrink-0">
-                                {safePost.author.charAt(0)}
-                            </div>
-                            <div>
-                                <p className="text-sm font-semibold text-slate-800">{safePost.author}</p>
-                                <p className="text-xs text-slate-400">Agro Hero</p>
-                            </div>
-                        </div>
                     </header>
 
                     {/* ── Hero Image ── */}
@@ -126,6 +112,7 @@ export default async function BlogDetailPage({ params }: Props) {
                             src={safePost.imageUrl}
                             alt={safePost.title}
                             fill
+                            sizes="(max-width: 768px) 100vw, 896px"
                             className="object-cover"
                             style={{ objectPosition: safePost.imageObjectPosition ?? 'center' }}
                             priority
@@ -185,26 +172,6 @@ export default async function BlogDetailPage({ params }: Props) {
                             )
                         })}
                     </div>
-
-                    {/* ── Bottom author card ── */}
-                    <div className="mt-14 p-6 rounded-2xl bg-gradient-to-br from-orange-50 to-amber-50/40 border border-orange-100 flex items-center gap-4">
-                        <div className="flex size-12 items-center justify-center rounded-full bg-orange-200 text-orange-800 font-bold text-lg shrink-0">
-                            {safePost.author.charAt(0)}
-                        </div>
-                        <div className="flex-1 min-w-0">
-                            <p className="text-sm font-bold text-slate-800">{safePost.author}</p>
-                            <p className="text-xs text-slate-500 mt-0.5">Tim Agro Hero · Diterbitkan pada {safePost.date}</p>
-                        </div>
-                        <Link
-                            href="/blog"
-                            className="shrink-0 inline-flex items-center gap-1.5 text-xs font-semibold text-orange-600 hover:text-orange-700 transition-colors"
-                        >
-                            Lihat semua artikel
-                            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                                <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
-                            </svg>
-                        </Link>
-                    </div>
                 </div>
 
                 {/* ── Related Articles (full width section, inner constrained) ── */}
@@ -237,15 +204,13 @@ export default async function BlogDetailPage({ params }: Props) {
                                                     src={rel.imageUrlSmall}
                                                     alt={rel.title}
                                                     fill
+                                                    sizes="(max-width: 640px) 100vw, 300px"
                                                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                                                     style={{ objectPosition: rel.imageObjectPosition ?? 'center' }}
                                                 />
                                             </div>
                                             <CardContent className="p-5">
                                                 <div className="flex items-center gap-2 mb-3">
-                                                    <Badge className={`rounded-full text-[10px] font-semibold px-2.5 py-0.5 border-0 ${relColor}`}>
-                                                        {rel.category}
-                                                    </Badge>
                                                     <span className="text-[11px] text-slate-400">{rel.readTime}</span>
                                                 </div>
                                                 <h3 className="text-sm font-bold text-slate-800 leading-snug mb-2 line-clamp-2 group-hover:text-orange-600 transition-colors">

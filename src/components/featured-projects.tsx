@@ -94,7 +94,7 @@ export default function FeaturedProjects() {
                             </CardContent>
 
                             <CardFooter className="p-6 pt-4">
-                                <Button className="w-full rounded-xl bg-slate-900 text-white hover:bg-slate-800 shadow-md">Lihat Detail</Button>
+                                <Button className="w-full rounded-xl bg-orange-600 text-white hover:bg-orange-700 shadow-md">Lihat Detail</Button>
                             </CardFooter>
                         </Card>
                     ))}
