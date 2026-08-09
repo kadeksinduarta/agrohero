@@ -1,5 +1,8 @@
+import { Inter } from "next/font/google";
 import "./globals.css";
 import type { Metadata } from "next";
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
   title: {
@@ -56,8 +59,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning={true}>
-      <body className="bg-gradient-to-br from-[#E2F0FD] via-[#F8FBFF] to-[#F1F9F6] min-h-screen text-slate-800 font-sans antialiased selection:bg-blue-200">
+    <html lang="en" suppressHydrationWarning={true} className={inter.variable}>
+      <body className="bg-white min-h-screen text-slate-800 font-sans antialiased selection:bg-blue-200">
         <div className="relative flex min-h-screen flex-col overflow-hidden">{children}</div>
       </body>
     </html>

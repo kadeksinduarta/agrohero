@@ -1,7 +1,12 @@
 'use client'
-import React, { useState } from 'react'
-import { ChevronDown } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import React from 'react'
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+} from '@/components/ui/accordion'
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
 
 const faqs = {
     investor: [
@@ -35,13 +40,6 @@ const faqs = {
 }
 
 export default function FaqSection() {
-    const [category, setCategory] = useState<'investor' | 'petani'>('investor')
-    const [openIndex, setOpenIndex] = useState<number | null>(null)
-
-    const toggleFaq = (index: number) => {
-        setOpenIndex(openIndex === index ? null : index)
-    }
-
     return (
         <section id="faq" className="py-24 relative overflow-hidden">
             <div className="mx-auto max-w-4xl px-6">
@@ -54,64 +52,46 @@ export default function FaqSection() {
                     </p>
                 </div>
 
-                {/* Category Toggle */}
-                <div className="flex flex-wrap justify-center gap-4 mb-10">
-                    <button
-                        onClick={() => { setCategory('investor'); setOpenIndex(null); }}
-                        className={cn(
-                            "px-6 py-2 rounded-full font-medium transition-all duration-200 border",
-                            category === 'investor' 
-                                ? "bg-slate-800 text-white border-slate-800 shadow-md" 
-                                : "bg-white/40 text-slate-600 border-white/60 hover:bg-white/60 backdrop-blur-md"
-                        )}
-                    >
-                        Untuk Investor
-                    </button>
-                    <button
-                        onClick={() => { setCategory('petani'); setOpenIndex(null); }}
-                        className={cn(
-                            "px-6 py-2 rounded-full font-medium transition-all duration-200 border",
-                            category === 'petani' 
-                                ? "bg-slate-800 text-white border-slate-800 shadow-md" 
-                                : "bg-white/40 text-slate-600 border-white/60 hover:bg-white/60 backdrop-blur-md"
-                        )}
-                    >
-                        Untuk Petani Mitra
-                    </button>
-                </div>
+                <Tabs defaultValue="investor" className="w-full flex flex-col items-center">
+                    <TabsList className="mb-8 bg-white/40 border border-white/60 backdrop-blur-md p-1 rounded-md">
+                        <TabsTrigger value="investor" className="px-6 py-2 rounded-md font-medium text-slate-700 data-[state=active]:bg-slate-800 data-[state=active]:text-white transition-all">
+                            Untuk Investor
+                        </TabsTrigger>
+                        <TabsTrigger value="petani" className="px-6 py-2 rounded-md font-medium text-slate-700 data-[state=active]:bg-slate-800 data-[state=active]:text-white transition-all">
+                            Untuk Petani Mitra
+                        </TabsTrigger>
+                    </TabsList>
 
-                {/* FAQ List */}
-                <div className="space-y-4">
-                    {faqs[category].map((faq, index) => (
-                        <div 
-                            key={index} 
-                            className="rounded-[1.5rem] border border-white/40 bg-white/40 backdrop-blur-xl shadow-sm overflow-hidden transition-all duration-200"
-                        >
-                            <button
-                                onClick={() => toggleFaq(index)}
-                                className="w-full flex items-center justify-between p-6 text-left outline-none"
-                            >
-                                <span className="font-medium text-slate-800 pr-4">{faq.q}</span>
-                                <ChevronDown 
-                                    className={cn(
-                                        "size-5 text-slate-400 transition-transform duration-200 flex-shrink-0",
-                                        openIndex === index ? "rotate-180" : ""
-                                    )} 
-                                />
-                            </button>
-                            <div 
-                                className={cn(
-                                    "px-6 overflow-hidden transition-all duration-200",
-                                    openIndex === index ? "max-h-40 pb-6 opacity-100" : "max-h-0 opacity-0"
-                                )}
-                            >
-                                <p className="text-slate-500 text-sm leading-relaxed">
-                                    {faq.a}
-                                </p>
-                            </div>
-                        </div>
-                    ))}
-                </div>
+                    <TabsContent value="investor" className="w-full">
+                        <Accordion type="single" collapsible className="space-y-4">
+                            {faqs.investor.map((faq, index) => (
+                                <AccordionItem key={index} value={`item-${index}`} className="rounded-md border border-white/40 bg-white/40 backdrop-blur-xl shadow-sm px-6">
+                                    <AccordionTrigger className="font-medium text-slate-800 hover:no-underline text-left py-6">
+                                        {faq.q}
+                                    </AccordionTrigger>
+                                    <AccordionContent className="text-slate-500 text-sm leading-relaxed pb-6">
+                                        {faq.a}
+                                    </AccordionContent>
+                                </AccordionItem>
+                            ))}
+                        </Accordion>
+                    </TabsContent>
+
+                    <TabsContent value="petani" className="w-full">
+                        <Accordion type="single" collapsible className="space-y-4">
+                            {faqs.petani.map((faq, index) => (
+                                <AccordionItem key={index} value={`item-${index}`} className="rounded-md border border-white/40 bg-white/40 backdrop-blur-xl shadow-sm px-6">
+                                    <AccordionTrigger className="font-medium text-slate-800 hover:no-underline text-left py-6">
+                                        {faq.q}
+                                    </AccordionTrigger>
+                                    <AccordionContent className="text-slate-500 text-sm leading-relaxed pb-6">
+                                        {faq.a}
+                                    </AccordionContent>
+                                </AccordionItem>
+                            ))}
+                        </Accordion>
+                    </TabsContent>
+                </Tabs>
             </div>
         </section>
     )

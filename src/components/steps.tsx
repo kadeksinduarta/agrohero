@@ -3,8 +3,8 @@ import React from 'react'
 const steps = [
     {
         step: 'Langkah 1',
-        title: 'Pilih Aset & Danai',
-        description: 'Temukan proyek pertanian yang telah terverifikasi dan sesuai dengan profil risiko Anda.',
+        title: 'Pilih Mitra & Danai',
+        description: 'Pilih kelompok tani yang telah kami verifikasi dan bantu mereka memulai musim tanam.',
     },
     {
         step: 'Langkah 2',
@@ -38,10 +38,10 @@ export default function StepsSection() {
                     {steps.map((item, index) => (
                         <div
                             key={index}
-                            className="group relative w-full flex-1 overflow-hidden rounded-[2.5rem] border border-white/50 bg-white/40 p-8 shadow-sm backdrop-blur-md transition-all hover:-translate-y-2 hover:bg-white/60 hover:shadow-xl"
+                            className="group relative w-full flex-1 overflow-hidden rounded-md border border-white/50 bg-white/40 p-8 shadow-sm backdrop-blur-md transition-all hover:-translate-y-2 hover:bg-white/60 hover:shadow-xl"
                             style={{ zIndex: 10 + index }}
                         >
-                            <span className="text-sm font-semibold text-blue-500 mb-2 block uppercase tracking-wider">{item.step}</span>
+                            <span className="text-xs font-semibold text-orange-600 mb-2 block uppercase tracking-wider">{item.step}</span>
                             <h3 className="text-2xl font-medium text-slate-800 mb-4">{item.title}</h3>
                             <p className="text-slate-500 leading-relaxed text-sm">
                                 {item.description}

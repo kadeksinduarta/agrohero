@@ -8,8 +8,7 @@ import { cn } from '@/lib/utils'
 
 const menuItems = [
     { name: 'Home', href: '/' },
-    { name: 'Fitur', href: '/#fitur' },
-    { name: 'Tentang Kami', href: '/about' },
+    { name: 'Blog', href: '/blog' },
 ]
 
 export const HeroHeader = () => {
@@ -29,7 +28,7 @@ export const HeroHeader = () => {
             <nav
                 data-state={menuState ? 'active' : 'inactive'}
                 className={cn(
-                    'relative flex w-full max-w-4xl items-center justify-between rounded-full border border-white/20 bg-white/40 px-4 py-2.5 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] backdrop-blur-md transition-all duration-300',
+                    'relative flex w-full max-w-4xl items-center justify-between rounded-md border border-white/20 bg-white/40 px-4 py-2.5 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] backdrop-blur-md transition-all duration-300',
                     isScrolled ? 'bg-white/60 shadow-md' : ''
                 )}>
 
@@ -73,8 +72,9 @@ export const HeroHeader = () => {
 
                 {/* Desktop CTA */}
                 <div className="hidden md:flex">
-                      <Button className="w-full">
+                      <Button className="w-full rounded-md bg-white text-black hover:bg-white/50 font-medium px-6 flex items-center gap-2">
                             Download App
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                      </Button>
                 </div>
 
@@ -97,7 +97,7 @@ export const HeroHeader = () => {
                                     asChild
                                     className="w-full rounded-full bg-slate-800 font-semibold text-white">
                                     <Link href="#" onClick={() => setMenuState(false)}>
-                                        Mulai Investasi
+                                        Download App
                                     </Link>
                                 </Button>
                             </li>

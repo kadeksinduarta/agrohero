@@ -1,88 +1,67 @@
 import Link from 'next/link'
-import Image from 'next/image'
+import { Card, CardContent } from '@/components/ui/card'
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar'
 
 const members = [
     {
-        name: 'Henry Lee',
-        role: 'UX Engeneer',
-        avatar: 'https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?q=80&w=2352&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-        link: '#',
+        name: 'Sindu Arta',
+        role: 'CEO - Agro Hero',
+        avatar: '/SINDU.jpg',
     },
     {
-        name: 'Isabella Garcia',
-        role: 'Sales Manager',
-        avatar: 'https://images.unsplash.com/photo-1633625763717-045645e9e739?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-        link: '#',
+        name: 'I Gusti Lanang Agung Raditya Putra, S.Pd.,M',
+        role: 'Bisnis Mentor',
+        avatar: '/pak-lanang.jpg',
     },
     {
-        name: 'Liam Brown',
-        role: 'Founder - CEO',
-        avatar: 'https://images.unsplash.com/photo-1758922584983-82ffd5720c6a?q=80&w=1331&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-        link: '#',
+        name: 'Candra Utami',
+        role: 'COO - Agro Hero',
+        avatar: '/candra.jpg',
     },
     {
-        name: 'Olivia Miller',
-        role: 'Visual Designer',
-        avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1364&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-        link: '#',
+        name: 'Windu Sari',
+        role: 'CFO - Agro Hero',
+        avatar: '/Windu.jpg',
     },
     {
-        name: 'Ava Williams',
-        role: 'Interaction Designer',
-        avatar: 'https://images.unsplash.com/photo-1605661107759-587d4bfdf168?q=80&w=1364&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-        link: '#',
+        name: 'Angga Widiana',
+        role: 'CTO - Agro Hero',
+        avatar: '/Angga.jpg',
     },
     {
-        name: 'Elijah Jones',
-        role: 'Co-Founder - CTO',
-        avatar: 'https://images.unsplash.com/photo-1563237023-b1e970526dcb?q=80&w=1365&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-        link: '#',
-    },
+        name: 'Kurnia',
+        role: 'CMO - Agro Hero',
+        avatar: '/kurnia.jpg',
+    }
 ]
 
 export default function TeamSection() {
     return (
-        <section className="bg-gray-50 py-16 md:py-32 dark:bg-transparent">
+        <section className="bg-gray-50/50 py-16 md:py-32">
             <div className="mx-auto max-w-5xl border-t px-6">
-                <span className="text-caption -ml-6 -mt-3.5 block w-max bg-gray-50 px-6 dark:bg-gray-950">Team</span>
+                <span className="text-xs font-semibold uppercase tracking-wider -ml-6 -mt-3.5 block w-max bg-gray-50 px-6 text-slate-500">Tim Agro Hero</span>
                 <div className="mt-12 gap-4 sm:grid sm:grid-cols-2 md:mt-24">
-                    <div className="sm:w-2/5">
-                        <h2 className="text-3xl font-bold sm:text-4xl">Our dream team</h2>
+                    <div className="sm:w-3/5">
+                        <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Tim Berpengalaman</h2>
                     </div>
                     <div className="mt-6 sm:mt-0">
-                        <p>During the working process, we perform regular fitting with the client because he is the only person who can feel whether a new suit fits or not.</p>
+                        <p className="text-slate-600 text-sm leading-relaxed">Tim multidisiplin kami berdedikasi penuh menghubungkan pemilik modal, agronomis, dan kelompok tani demi terciptanya ekosistem pertanian terpercaya.</p>
                     </div>
                 </div>
                 <div className="mt-12 md:mt-24">
-                    <div className="grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+                    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                         {members.map((member, index) => (
-                            <div
-                                key={index}
-                                className="group overflow-hidden">
-                                <Image
-                                    className="h-96 w-full rounded-md object-cover object-top grayscale transition-all duration-500 hover:grayscale-0 group-hover:h-[22.5rem] group-hover:rounded-xl"
-                                    src={member.avatar}
-                                    alt="team member"
-                                    width="826"
-                                    height="1239"
-                                    sizes="(max-width: 768px) 100vw, 280px"
-                                />
-                                <div className="px-2 pt-2 sm:pb-0 sm:pt-4">
-                                    <div className="flex justify-between">
-                                        <h3 className="text-base font-medium transition-all duration-500 group-hover:tracking-wider">{member.name}</h3>
-                                        <span className="text-xs">_0{index + 1}</span>
-                                    </div>
-                                    <div className="mt-1 flex items-center justify-between">
-                                        <span className="text-muted-foreground inline-block translate-y-6 text-sm opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100">{member.role}</span>
-                                        <Link
-                                            href={member.link}
-                                            className="group-hover:text-primary-600 dark:group-hover:text-primary-400 inline-block translate-y-8 text-sm tracking-wide opacity-0 transition-all duration-500 hover:underline group-hover:translate-y-0 group-hover:opacity-100">
-                                            {' '}
-                                            Linktree
-                                        </Link>
-                                    </div>
-                                </div>
-                            </div>
+                            <Card key={index} className="group overflow-hidden rounded-2xl border-slate-200 bg-white shadow-sm hover:shadow-md transition-all">
+                                <CardContent className="p-6 flex flex-col items-center text-center">
+                                    <Avatar className="size-24 mb-4 ring-2 ring-orange-600/20">
+                                        <AvatarImage src={member.avatar} alt={member.name} className="object-cover" />
+                                        <AvatarFallback>{member.name.substring(0, 2)}</AvatarFallback>
+                                    </Avatar>
+                                    
+                                    <h3 className="text-lg font-bold text-slate-800">{member.name}</h3>
+                                    <span className="text-xs font-medium text-orange-600 mt-1">{member.role}</span>
+                                </CardContent>
+                            </Card>
                         ))}
                     </div>
                 </div>
