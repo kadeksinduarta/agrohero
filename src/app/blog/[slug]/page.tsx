@@ -12,6 +12,7 @@ import blogPostsData from '@/data/blog-posts.json'
 // ── Types ───────────────────────────────────────────────────────────────
 type BlogPost = {
     id: number
+    slug: string
     title: string
     excerpt: string
     content: string
@@ -39,12 +40,12 @@ const categoryColors: Record<string, string> = {
 }
 
 type Props = {
-    params: Promise<{ id: string }>
+    params: Promise<{ slug: string }>
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const { id } = await params
-    const post = blogPosts.find(p => p.id === parseInt(id))
+    const { slug } = await params
+    const post = blogPosts.find(p => p.slug === slug)
     if (!post) return { title: 'Artikel tidak ditemukan | Agro Hero' }
     return {
         title: `${post.title} | Agro Hero`,
@@ -53,12 +54,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export function generateStaticParams() {
-    return blogPosts.map(post => ({ id: String(post.id) }))
+    return blogPosts.map(post => ({ slug: post.slug }))
 }
 
 export default async function BlogDetailPage({ params }: Props) {
-    const { id } = await params
-    const post = blogPosts.find(p => p.id === parseInt(id))
+    const { slug } = await params
+    const post = blogPosts.find(p => p.slug === slug)
 
     if (!post) notFound()
     // TS narrowing — after notFound() the function never continues, but we assert here
@@ -197,7 +198,7 @@ export default async function BlogDetailPage({ params }: Props) {
                             {related.map((rel) => {
                                 const relColor = categoryColors[rel.category] ?? "bg-slate-100 text-slate-700"
                                 return (
-                                    <Link key={rel.id} href={`/blog/${rel.id}`} className="group block">
+                                    <Link key={rel.id} href={`/blog/${rel.slug}`} className="group block">
                                         <Card className="h-full overflow-hidden rounded-2xl border-slate-200 bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-md border">
                                             <div className="relative w-full aspect-video overflow-hidden bg-slate-100">
                                                 <Image

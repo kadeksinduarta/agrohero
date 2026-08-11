@@ -11,6 +11,7 @@ import blogPostsData from '@/data/blog-posts.json'
 // ── Types ────────────────────────────────────────────────────────────────
 type BlogPost = {
     id: number
+    slug: string
     title: string
     excerpt: string
     content: string
@@ -60,7 +61,7 @@ export default function BlogPage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {blogPosts.map((post) => (
                             <Card key={post.id} className="group flex flex-col overflow-hidden rounded-2xl border-slate-200 bg-white shadow-sm transition-all hover:shadow-md border">
-                                <Link href={`/blog/${post.id}`} className="block relative w-full aspect-video overflow-hidden bg-slate-100">
+                                <Link href={`/blog/${post.slug}`} className="block relative w-full aspect-video overflow-hidden bg-slate-100">
                                     <Image
                                         src={post.imageUrlSmall}
                                         alt={post.title}
@@ -81,7 +82,7 @@ export default function BlogPage() {
                                         </Badge>
                                     </div>
                                     <CardTitle className="text-lg font-semibold leading-snug text-slate-900 group-hover:text-slate-600">
-                                        <Link href={`/blog/${post.id}`}>
+                                        <Link href={`/blog/${post.slug}`}>
                                             {post.title}
                                         </Link>
                                     </CardTitle>
@@ -96,7 +97,7 @@ export default function BlogPage() {
                                 <CardFooter className="p-6 pt-4 border-t border-slate-100 flex items-center justify-between">
                                     <span className="text-xs text-slate-500 font-medium">{post.author}</span>
                                     <Link
-                                        href={`/blog/${post.id}`}
+                                        href={`/blog/${post.slug}`}
                                         className="inline-flex items-center gap-1.5 text-xs font-semibold text-orange-600 hover:text-orange-700 transition-colors group/link"
                                     >
                                         Baca Selengkapnya
