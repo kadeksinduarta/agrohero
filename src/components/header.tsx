@@ -72,7 +72,7 @@ export const HeroHeader = () => {
 
                 {/* Desktop CTA */}
                 <div className="hidden md:flex">
-                      <Button asChild className="w-full rounded-md bg-white text-black hover:bg-white/50 font-medium px-6 flex items-center gap-2">
+                      <Button asChild className="w-full rounded-md bg-white text-black hover:bg-white/50 font-medium px-6 flex items-center gap-2 border border-gray-200">
                             <a href="https://play.google.com/store/apps/details?id=com.agrohero.app" target="_blank" rel="noopener noreferrer">
                                 Download App
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
@@ -95,13 +95,12 @@ export const HeroHeader = () => {
                                 </li>
                             ))}
                             <li className="pt-2">
-                                <Button
-                                    asChild
-                                    className="w-full rounded-full bg-slate-800 font-semibold text-white">
-                                    <a href="https://play.google.com/store/apps/details?id=com.agrohero.app" target="_blank" rel="noopener noreferrer" onClick={() => setMenuState(false)}>
+                                  <Button asChild className="w-full rounded-md bg-white text-black hover:bg-white/50 font-medium px-6 flex items-center gap-2 border border-gray-200">
+                                    <a href="https://play.google.com/store/apps/details?id=com.agrohero.app" target="_blank" rel="noopener noreferrer">
                                         Download App
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                                     </a>
-                                </Button>
+                              </Button>
                             </li>
                         </ul>
                     </div>
