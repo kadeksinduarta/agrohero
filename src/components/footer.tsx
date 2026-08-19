@@ -27,6 +27,7 @@ export default function Footer() {
                     {/* Simple Links */}
                     <div className="flex flex-wrap justify-center gap-6 text-sm font-medium text-slate-600">
                         <Link href="/" className="hover:text-slate-900 transition">Beranda</Link>
+                        <Link href="/tentang-kami" className="hover:text-slate-900 transition">Tentang Kami</Link>
                         <Link href="/blog" className="hover:text-slate-900 transition">Blog</Link>
                         <Link href="#faq" className="hover:text-slate-900 transition">FAQ</Link>
                     </div>

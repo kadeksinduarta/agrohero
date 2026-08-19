@@ -1,13 +1,32 @@
 'use client'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, ChevronDown } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import React from 'react'
 import { cn } from '@/lib/utils'
 
-const menuItems = [
+type NavChild = { name: string; href: string; desc: string }
+type NavItem = { name: string; href: string; children?: NavChild[] }
+
+const menuItems: NavItem[] = [
     { name: 'Home', href: '/' },
+    {
+        name: 'Tentang Kami',
+        href: '/tentang-kami',
+        children: [
+            {
+                name: 'Tentang Agro Hero',
+                href: '/tentang-kami',
+                desc: 'Visi, misi, dan tim di balik Agro Hero',
+            },
+            {
+                name: 'Cara Penggunaan',
+                href: '/tentang-kami/cara-penggunaan',
+                desc: 'Panduan video untuk investor & petani',
+            },
+        ],
+    },
     { name: 'Blog', href: '/blog' },
 ]
 
@@ -16,9 +35,7 @@ export const HeroHeader = () => {
     const [isScrolled, setIsScrolled] = React.useState(false)
 
     React.useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 20)
-        }
+        const handleScroll = () => setIsScrolled(window.scrollY > 20)
         window.addEventListener('scroll', handleScroll)
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
@@ -57,14 +74,38 @@ export const HeroHeader = () => {
 
                 {/* Desktop Links */}
                 <div className="hidden md:block">
-                    <ul className="flex gap-6 text-sm font-medium text-slate-600">
+                    <ul className="flex gap-1 text-sm font-medium text-slate-600">
                         {menuItems.map((item, index) => (
-                            <li key={index}>
-                                <Link
-                                    href={item.href}
-                                    className="rounded-full px-3 py-1.5 transition-colors hover:bg-white/50 hover:text-slate-900">
-                                    {item.name}
-                                </Link>
+                            <li key={index} className="relative group">
+                                {item.children ? (
+                                    <>
+                                        <button className="flex items-center gap-1 rounded-full px-3 py-1.5 transition-colors hover:bg-white/50 hover:text-slate-900">
+                                            {item.name}
+                                            <ChevronDown className="size-3.5 opacity-60 transition-transform duration-200 group-hover:rotate-180" />
+                                        </button>
+                                        {/* Dropdown panel — shown on group hover */}
+                                        <div className="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
+                                            <div className="w-60 rounded-xl border border-slate-100 bg-white shadow-xl p-1.5">
+                                                {item.children.map((child) => (
+                                                    <Link
+                                                        key={child.href}
+                                                        href={child.href}
+                                                        className="block rounded-lg px-3 py-2.5 hover:bg-slate-50 transition-colors"
+                                                    >
+                                                        <span className="block text-sm font-semibold text-slate-800">{child.name}</span>
+                                                        <span className="block text-xs text-slate-400 mt-0.5 leading-snug">{child.desc}</span>
+                                                    </Link>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </>
+                                ) : (
+                                    <Link
+                                        href={item.href}
+                                        className="block rounded-full px-3 py-1.5 transition-colors hover:bg-white/50 hover:text-slate-900">
+                                        {item.name}
+                                    </Link>
+                                )}
                             </li>
                         ))}
                     </ul>
@@ -72,35 +113,55 @@ export const HeroHeader = () => {
 
                 {/* Desktop CTA */}
                 <div className="hidden md:flex">
-                      <Button asChild className="w-full rounded-md bg-white text-black hover:bg-white/50 font-medium px-6 flex items-center gap-2 border border-gray-200">
-                            <a href="https://play.google.com/store/apps/details?id=com.agrohero.app" target="_blank" rel="noopener noreferrer">
-                                Download App
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                            </a>
-                      </Button>
+                    <Button asChild className="w-full rounded-md bg-white text-black hover:bg-white/50 font-medium px-6 flex items-center gap-2 border border-gray-200">
+                        <a href="https://play.google.com/store/apps/details?id=com.agrohero.app" target="_blank" rel="noopener noreferrer">
+                            Download App
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </a>
+                    </Button>
                 </div>
 
                 {/* Mobile Menu Dropdown */}
                 {menuState && (
                     <div className="absolute left-0 top-full mt-2 w-full rounded-3xl border border-white/20 bg-white/70 p-6 shadow-xl backdrop-blur-xl md:hidden">
-                        <ul className="space-y-4 text-center text-sm font-medium text-slate-700">
+                        <ul className="space-y-1 text-sm font-medium text-slate-700">
                             {menuItems.map((item, index) => (
                                 <li key={index}>
-                                    <Link
-                                        href={item.href}
-                                        onClick={() => setMenuState(false)}
-                                        className="block rounded-full px-3 py-2 hover:bg-white/50">
-                                        {item.name}
-                                    </Link>
+                                    {item.children ? (
+                                        <div>
+                                            <p className="text-center px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-slate-400">
+                                                {item.name}
+                                            </p>
+                                            <div className="space-y-0.5">
+                                                {item.children.map((child) => (
+                                                    <Link
+                                                        key={child.href}
+                                                        href={child.href}
+                                                        onClick={() => setMenuState(false)}
+                                                        className="block text-center rounded-full px-3 py-2 hover:bg-white/50 text-slate-700"
+                                                    >
+                                                        {child.name}
+                                                    </Link>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    ) : (
+                                        <Link
+                                            href={item.href}
+                                            onClick={() => setMenuState(false)}
+                                            className="block text-center rounded-full px-3 py-2 hover:bg-white/50">
+                                            {item.name}
+                                        </Link>
+                                    )}
                                 </li>
                             ))}
                             <li className="pt-2">
-                                  <Button asChild className="w-full rounded-md bg-white text-black hover:bg-white/50 font-medium px-6 flex items-center gap-2 border border-gray-200">
+                                <Button asChild className="w-full rounded-md bg-white text-black hover:bg-white/50 font-medium px-6 flex items-center gap-2 border border-gray-200">
                                     <a href="https://play.google.com/store/apps/details?id=com.agrohero.app" target="_blank" rel="noopener noreferrer">
                                         Download App
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                                     </a>
-                              </Button>
+                                </Button>
                             </li>
                         </ul>
                     </div>

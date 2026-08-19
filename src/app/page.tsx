@@ -3,7 +3,7 @@ import TractionBar from "@/components/traction-bar";
 import ValueProposition from "@/components/value-proposition";
 import FeaturedProjects from "@/components/featured-projects";
 import StepsSection from "@/components/steps";
-import TeamSection from "@/components/team";
+
 import FaqSection from "@/components/faq-section";
 import DownloadBanner from "@/components/download-banner";
 import Footer from "@/components/footer";
@@ -31,7 +31,7 @@ export default function Home() {
       <ValueProposition />
       <FeaturedProjects />
       <StepsSection />
-      <TeamSection />
+
       <FaqSection />
       <DownloadBanner />
       <Footer/>
