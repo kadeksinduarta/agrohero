@@ -96,35 +96,6 @@ export default function TentangKamiPage() {
 
           </div>
         </section>
-
-        {/* ── CARA PENGGUNAAN ──────────────────────────────────────── */}
-        <section className="py-16 bg-white border-t border-slate-100">
-          <div className="mx-auto max-w-4xl px-4 sm:px-6">
-            <Link
-              href="/tentang-kami/cara-penggunaan"
-              className="group flex items-center justify-between rounded-2xl border border-slate-200 bg-slate-50 hover:bg-white hover:border-orange-200 hover:shadow-md transition-all p-6 sm:p-8"
-            >
-              <div className="flex items-center gap-5">
-                <div className="shrink-0 h-12 w-12 rounded-xl bg-orange-50 border border-orange-100 flex items-center justify-center text-orange-500 group-hover:bg-orange-100 transition-colors">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <polygon points="5 3 19 12 5 21 5 3" />
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-widest text-orange-500 mb-1">Tutorial</p>
-                  <h2 className="text-lg font-bold text-slate-900">Cara Penggunaan Aplikasi</h2>
-                  <p className="text-sm text-slate-500 mt-1 leading-relaxed">
-                    Lihat 3 video panduan — perkenalan fitur, cara investor, dan cara petani mengelola lahan.
-                  </p>
-                </div>
-              </div>
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 text-slate-300 group-hover:text-orange-400 transition-colors group-hover:translate-x-0.5">
-                <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
-              </svg>
-            </Link>
-          </div>
-        </section>
-
         {/* ── TEAM ─────────────────────────────────────────────────── */}
         <TeamSection />
       </main>
