@@ -22,7 +22,7 @@ const videos = [
     id: 3,
     title: "Cara Petani Mengelola Lahan",
     desc: "Tutorial bagi petani mitra — update log harian, menggunakan Agro Hero ID, melaporkan hasil panen, dan berkomunikasi dengan investor.",
-    youtubeId: "",
+    youtubeId: "3zgbE8d2h_k",
   },
 ];
 
